@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<title>Registration Form</title>
+<link rel="stylesheet" href="/stylesheets/style.css" />
+<script
+src="https://code.jquery.com/jquery-3.5.1.min.js"
+integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+crossorigin="anonymous">
+</script>
+</head>
+
+<h1>Registration</h1>
+회원가입을 위한 당신의 정보를 입력해주세요.
+
+<ul>
+<li><label for="userid">ID:</label></li>
+<input id = "inputid" type = "text" size="12" / required>
+<li><label for="passid">Password:</label></li>
+<input id = "inputpw" type = "text" size="12" / required><br><br>
+<li><label for="username">이름 :</label></li>
+<input id = "inputname" type = "text" size="50" / required><br><br>
+
+<li><label for="date"> 생년월일 :</label></li>
+
+
+<input id = "inputbdate" type='date' / required><br><br>
+
+
+<div id = "submit">submit</div>
+<!-- <input id = "submit" type="submit" name="submit" value="Submit" /> -->
+
+
+</ul>
+</form>
+</body>
+<script>
+    async function submitReg(id, pw, name, dob) {
+      Json_form = "{\"is_id\":\""+id+"\",\"is_pw\":\""+pw+"\",\"is_name\":\""+name+"\",\"is_dob\":\""+dob+"\",\"is_Swt_function\":\"e\"}"
+      try {
+          const response = await fetch('/api/Swtool?type=savereg', {
+              method: 'POST',
+              headers: {
+              'Content-Type': 'application/json',
+              },
+              body: Json_form,
+          });
+          const body = await response.text();
+          if(body == "succ"){
+            alert("succ")
+          }else{
+              alert('작업중 오류가 발생하였습니다.')
+          }  
+      } catch (error) {
+          alert('작업중 오류가 발생하였습니다.')
+      }
+    }
+
+    // var id = $("input#inputid").val();  
+    // var pw = $("input#inputpw").val();
+    // var name = $("input#inputname").val();
+    // var bod = $("input#inputbdate").val();
+    //   // input가 content변수안에 담김 
+
+    
+  $('#submit').click(()=> {
+
+    var id = $('input#inputid').val();  
+    var pw = $('input#inputpw').val();
+    var name = $('input#inputname').val();
+    var bod = $('input#inputbdate').val();
+   
+      // input가 content변수안에 담김 
+      console.log(id +" / "+ pw +" / "+ name +" / "+ bod);
+      submitReg(id, pw, name, bod);
+    
+  });
+
+
+
+</script>
+</html>
