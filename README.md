@@ -5,7 +5,7 @@
 해당 웹은 node.js의 express ejs를 기반으로 제작이 되었습니다 <br>
 </p>
 <p>
-amazon aws ---- mysql 연동 
+**amazon aws ---- mysql 연동** 
 <ul>
 1. routes 폴더 내 dbconnect_Module 파일 속 aws host와 port, password를 입력해서 사용하시면 됩니다.<br>
 2. sql 문구는 models 폴더 내 SwToolsMapper 안에 mysql 구문을 입력해 사용하시면 됩니다. 
