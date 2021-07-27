@@ -13,7 +13,7 @@
 const pool  = mysql.createPool({<br>
   connectionLimit: 66,<br>
   waitForConnections: true,<br>
-  // host: "react200.cinvalghkckt.ap-northeast-2.rds.amazonaws.com",<br>
+  // ex ) host: "rea.cin.ap-northeast-2.rds.amazonaws.com",<br>
   host: "your amazon host",<br>
   port: "3306", //port name <br>
   database: 'react', //database name<br>
