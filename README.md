@@ -8,6 +8,20 @@
 **amazon aws ---- mysql 연동** 
 <ul>
 1. routes 폴더 내 dbconnect_Module 파일 속 aws host와 port, password를 입력해서 사용하시면 됩니다.<br>
+  <p>
+    // Connection Pool 세팅
+const pool  = mysql.createPool({
+  connectionLimit: 66,
+  waitForConnections: true,
+  // host: "react200.cinvalghkckt.ap-northeast-2.rds.amazonaws.com",
+  host: "your amazon host",
+  port: "3306", //port name 
+  database: 'react', //database name
+  user: "admin",
+  
+  password: "your password",
+});
+  </p>
 2. sql 문구는 models 폴더 내 SwToolsMapper 안에 mysql 구문을 입력해 사용하시면 됩니다. 
 </ul>
 </p>
